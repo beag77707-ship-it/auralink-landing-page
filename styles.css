@@ -46,9 +46,53 @@ html {
 body {
     font-family: 'Inter', sans-serif;
     color: var(--text-main);
-    background-color: var(--bg-white);
+    background-color: transparent;
     line-height: 1.6;
     overflow-x: hidden;
+    position: relative;
+}
+
+/* Background Waves */
+.waves-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+}
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200vw;
+    height: 100%;
+    background-repeat: repeat-x;
+    background-position: bottom;
+}
+.wave1 {
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%23bae6fd" fill-opacity="0.5" d="M0,160L48,170.7C96,181,192,203,288,197.3C384,192,480,160,576,144C672,128,768,128,864,138.7C960,149,1056,171,1152,181.3C1248,192,1344,192,1392,192L1440,192L1440,320L0,320Z"></path></svg>');
+    background-size: 1440px 320px;
+    animation: wave-anim 25s linear infinite;
+    z-index: 1;
+}
+.wave2 {
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%237dd3fc" fill-opacity="0.3" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L0,320Z"></path></svg>');
+    background-size: 1440px 320px;
+    animation: wave-anim 20s linear infinite reverse;
+    z-index: 2;
+}
+.wave3 {
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%2338bdf8" fill-opacity="0.15" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,117.3C960,139,1056,181,1152,208C1248,235,1344,245,1392,250.7L1440,256L1440,320L0,320Z"></path></svg>');
+    background-size: 1440px 320px;
+    animation: wave-anim 35s linear infinite;
+    z-index: 3;
+}
+@keyframes wave-anim {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-1440px); }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -82,10 +126,16 @@ ul {
 
 .section {
     padding: 6rem 0;
+    position: relative;
+    z-index: 1;
 }
 
 .bg-light {
-    background-color: var(--bg-light);
+    background-color: rgba(248, 250, 252, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    position: relative;
+    z-index: 1;
 }
 
 .pt-16 { padding-top: 8rem; }
@@ -207,9 +257,11 @@ ul {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
     transition: var(--transition-fast);
 }
 
@@ -249,6 +301,13 @@ ul {
 .logo-icon svg {
     width: 18px;
     height: 18px;
+}
+
+.brand-logo {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    border-radius: 50%;
 }
 
 .nav-links {
@@ -584,18 +643,21 @@ ul {
 }
 
 .service-card {
-    background: var(--bg-white);
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     padding: 2.5rem;
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
     transition: var(--transition-smooth);
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .service-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--primary-light);
+    box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.08);
+    border-color: rgba(255, 255, 255, 1);
+    background: rgba(255, 255, 255, 0.75);
 }
 
 .card-title {
@@ -640,10 +702,13 @@ ul {
 }
 
 .workflow-step {
-    background: white;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     padding: 2.5rem;
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     position: relative;
     z-index: 2;
 }
@@ -673,11 +738,13 @@ ul {
 
 /* Testimonials */
 .testimonial-card {
-    background: var(--bg-white);
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     padding: 2rem;
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 /* Pricing Grid */
@@ -689,11 +756,13 @@ ul {
 }
 
 .pricing-card {
-    background: var(--bg-white);
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     padding: 3rem 2rem;
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     transition: var(--transition-smooth);
     position: relative;
 }
@@ -704,11 +773,13 @@ ul {
 }
 
 .pricing-card.pro {
-    background: var(--bg-dark);
+    background: rgba(15, 23, 42, 0.85); /* Dark transparent */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     color: white;
     transform: scale(1.05);
-    box-shadow: var(--shadow-lg);
-    border: none;
+    box-shadow: 0 16px 40px 0 rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .pricing-card.pro h3 {
@@ -770,10 +841,13 @@ ul {
 }
 
 .faq-item {
-    background: var(--bg-white);
-    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     border-radius: var(--radius-md);
     overflow: hidden;
+    box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.02);
 }
 
 .faq-question {
