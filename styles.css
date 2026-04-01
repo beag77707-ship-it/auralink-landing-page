@@ -670,27 +670,42 @@ ul {
 }
 
 /* Benefits Section */
-.benefits-list {
+.benefit-card {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: var(--transition-smooth);
+    text-align: center;
+}
+.benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.08);
+    background: rgba(255, 255, 255, 0.8);
+}
+.icon-wrapper {
+    width: 64px;
+    height: 64px;
+    background: var(--primary-light);
+    color: var(--primary);
+    border-radius: 50%;
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
 }
-
-.benefits-list li {
-    display: flex;
-    gap: 1rem;
+.icon-wrapper svg {
+    color: var(--primary);
 }
-
-.benefits-list strong {
-    font-family: 'Outfit';
-    font-size: 1.1rem;
-    display: block;
-    margin-bottom: 0.25rem;
+.benefit-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
 }
-
-.benefits-list p {
+.benefit-card p {
     color: var(--text-muted);
-    font-size: 0.95rem;
 }
 
 /* Process Section */
@@ -741,10 +756,41 @@ ul {
     background: rgba(255, 255, 255, 0.65);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    padding: 2rem;
+    padding: 2.5rem 2rem;
     border-radius: var(--radius-lg);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: var(--transition-smooth);
+}
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.08);
+}
+.testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1.5rem;
+    border: 4px solid var(--primary-light);
+    box-shadow: var(--shadow-sm);
+}
+.testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.testimonial-card p {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+    line-height: 1.6;
+}
+.testimonial-card strong {
+    color: var(--primary);
+    font-size: 0.9rem;
+    display: block;
+    font-weight: 700;
 }
 
 /* Pricing Grid */
